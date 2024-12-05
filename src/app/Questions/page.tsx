@@ -179,6 +179,7 @@ const InterviewPage = () => {
 
   // Speak the question using SpeechSynthesis
   const speakQuestion = (text: string) => {
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
     const synth = window.speechSynthesis;
 
     // Stop any ongoing speech before starting a new one
@@ -191,13 +192,15 @@ const InterviewPage = () => {
     utterance.rate = 1; // Adjust rate as needed
     utterance.pitch = 1; // Adjust pitch as needed
     synth.speak(utterance);
-  };
+  }
+};
   const SpeechRecognition =
-    (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+  typeof window !== 'undefined' &&
+    ((window as any).SpeechRecognition || (window as any).webkitSpeechRecognition);
   const recognition = SpeechRecognition ? new SpeechRecognition() : null;
 
   useEffect(() => {
-    if (speechEnabled) {
+    if (speechEnabled && typeof window !== 'undefined') {
     // Speak the question on load and whenever the question changes
     speakQuestion(question);
 

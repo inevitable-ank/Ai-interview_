@@ -2,42 +2,46 @@
 
 import { useEffect, useState } from "react";
 
-const SpeechRecognition =
-  (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-
 const InterviewPage = () => {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [question, setQuestion] = useState("Tell me about yourself.");
   const [userResponse, setUserResponse] = useState("");
   const [isListening, setIsListening] = useState(false);
 
-  const recognition = SpeechRecognition ? new SpeechRecognition() : null;
+  const [recognition, setRecognition] = useState<SpeechRecognition | null>(null);
 
   useEffect(() => {
-    if (recognition) {
-      recognition.lang = "en-US";
-      recognition.interimResults = false;
+    if (typeof window !== "undefined") {
+      const SpeechRecognition =
+        (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
-      recognition.onresult = (event: SpeechRecognitionEvent) => {
-        const transcript = event.results[0][0].transcript;
-        setUserResponse(transcript);
-        generateNextQuestion(transcript);
-      };
+      if (SpeechRecognition) {
+        const recognitionInstance = new SpeechRecognition();
+        recognitionInstance.lang = "en-US";
+        recognitionInstance.interimResults = false;
 
-      recognition.onerror = (event: Event) => {
-        console.error("Speech recognition error:", event);
-        alert("An error occurred with speech recognition. Please try again.");
-        setIsListening(false);
-      };
+        recognitionInstance.onresult = (event: SpeechRecognitionEvent) => {
+          const transcript = event.results[0][0].transcript;
+          setUserResponse(transcript);
+          generateNextQuestion(transcript);
+        };
 
-      recognition.onend = () => {
-        setIsListening(false);
-      };
+        recognitionInstance.onerror = (event: Event) => {
+          console.error("Speech recognition error:", event);
+          alert("An error occurred with speech recognition. Please try again.");
+          setIsListening(false);
+        };
+
+        recognitionInstance.onend = () => {
+          setIsListening(false);
+        };
+
+        setRecognition(recognitionInstance);
+      }
     }
-  }, [recognition]);
+  }, []);
 
   const generateNextQuestion = (response: string) => {
-    // Example logic for generating the next question based on response
     const nextQuestion = `Based on your answer: "${response}", here is the next question.`;
     setQuestion(nextQuestion);
     setQuestionNumber((prev) => prev + 1);
@@ -61,20 +65,17 @@ const InterviewPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-6">
-      {/* Question */}
       <header className="text-center mb-6">
         <p className="text-lg text-gray-300">{questionNumber}/26</p>
         <h1 className="text-2xl font-semibold">{question}</h1>
       </header>
 
-      {/* User Response */}
       <div className="text-center mb-6">
         <p className="text-lg font-semibold text-gray-300">
           Your Answer: {userResponse || "Waiting for your response..."}
         </p>
       </div>
 
-      {/* Control Buttons */}
       <div className="flex gap-4">
         {!isListening ? (
           <button
