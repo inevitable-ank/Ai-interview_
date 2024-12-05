@@ -1,4 +1,6 @@
 // // pages/instructions.tsx
+// These page needs modifaction
+// Next Mount error on this page
 "use client";
 
 import { useRef, useState } from "react";
@@ -77,7 +79,7 @@ const InstructionsPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-6">
-      {/* Header */}
+
       <div className="text-3xl font-bold text-center p-2 mt-4">
         ZEKO <span className="text-indigo-500">AI</span>
       </div>
@@ -131,13 +133,17 @@ const InstructionsPage = () => {
         </div>
       </div>
 
-      {/* Button */}
+      {/* Start Interview */}
+      {/* Need  */}
       <button
         className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition"
         onClick={handleStartInterview}
       >
         I Understand, start the interview
       </button>
+
+            {/* No need of Vdeo Stream */}
+
       {/* <button
         className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition mt-2"
         onClick={() => router.push("/Questions")}
