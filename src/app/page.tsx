@@ -1,17 +1,15 @@
-"use client"; // Make this a client component
+"use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation"; // Updated import
+import { useRouter } from "next/navigation"; 
 import Image from "next/image";
 import logo from "./assets/Zekologo.webp";
 import { Button } from "@/components/ui/button";
-// import Mon from "../../public/Mon.svg"
+
 import { FaLandmark } from "react-icons/fa";
-import { MdTimer } from "react-icons/md";
-import { FaHourglassHalf } from "react-icons/fa";
+
 import { FaRegClock } from "react-icons/fa";
-import { transform } from "next/dist/build/swc/generated-native";
-import { FaArrowRight } from "react-icons/fa";
+
 import { MdOpenInNew } from "react-icons/md";
 import { useRef } from "react";
 
@@ -25,18 +23,19 @@ const Home = () => {
 
   const [isCameraActive, setIsCameraActive] = useState(false)
 
+  // OTP and Login wala part, Need to work on it
   const handleLogin = () => {
     if (!email) {
       alert("Please enter your email.");
       return;
     }
-    setShowOtpPrompt(true); // Simulate sending OTP
+    setShowOtpPrompt(true); 
   };
 
   const verifyOtp = () => {
     if (otp === "1234") {
       setIsLoggedIn(true);
-      router.push("/profile"); // Redirect to the profile page
+      router.push("/profile");
     } else {
       alert("Invalid OTP. Try again.");
     }
@@ -51,14 +50,14 @@ const Home = () => {
   useEffect(() => {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices
-        .getUserMedia({ video: true }) // Request video feed
+        .getUserMedia({ video: true }) 
         .then((stream) => {
           if (videoRef.current) {
             if ("srcObject" in videoRef.current) {
-              videoRef.current.srcObject = stream; // Modern browsers
+              videoRef.current.srcObject = stream; 
             } else {
               console.log("not happening")
-              // videoRef.current.src = URL.createObjectURL(stream); // Fallback
+              // videoRef.current.src = URL.createObjectURL(stream); // not needed cosidering updated browsers
             }
             videoRef.current
               .play()
@@ -79,7 +78,7 @@ const Home = () => {
 
   return (
     <>
-      {/* Navbar */}
+      {/* Navbar  Section Profile Logo is remaining*/}
       <div className="absolute top-0 flex justify-between items-center h-16 w-full px-10 py-[1.5rem] z-40 bg-slate-100">
         <div className="text-lg font-bold flex items-center h-full">
           <Image src={logo} alt="Logo" width={106} height={20} />
@@ -104,10 +103,10 @@ const Home = () => {
         )}
       </div>
 
-      {/* Main Content */}
+      {/* 2nd Div*/}
       {/* <div className="grid grid-cols-2 gap-4 p-8 mt-16"> */}
       <div className="relative flex h-[95vh] min-h-fit flex-col bg-[#161d29] text-white md:w-full z-10 mt-12 md:h-[95vh]">
-        {/* Left Section */}
+
         <div className="m-auto mt-12 flex w-[95%] max-w-[88rem] flex-col items-center justify-center gap-8 md:m-auto md:w-[80%] md:gap-12">
           <div className="flex w-full items-start justify-between gap-4 md:flex-row md:items-center">
             <span className="whitespace-pre-line text-[1.25rem] leading-tight md:text-[1.5rem] font-[700] text-left text-white">
@@ -176,19 +175,19 @@ const Home = () => {
                   </span>
                 </div>
                 <div className="flex w-full gap-2 md:w-fit">
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
+                  <span className="whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] text-left text-white/90">
                     4.
                   </span>
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
+                  <span className="whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] text-left text-white/90">
                     Give a detailed response, providing as much information as you
                     can.
                   </span>
                 </div>
                 <div className="flex w-full gap-2 md:w-fit">
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
+                  <span className=" whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] text-left text-white/90">
                     4.
                   </span>
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
+                  <span className=" whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] text-left text-white/90">
                     Answer the question with examples and projects you’ve worked
                     on.
                   </span>
@@ -214,7 +213,10 @@ const Home = () => {
         {/* Bada wala div yaha close hua hai */}
 
 
-        {/* Right Section */}
+        {/* Isme Se OTP wala part track karna hai */}
+
+
+        
         {/* <div className="space-y-4">
           <h2 className="text-2xl font-bold">Trainee Interview</h2>
           <ol className="list-decimal list-inside text-gray-300 space-y-2">
