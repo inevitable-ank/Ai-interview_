@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI-Interview Web App
 
-## Getting Started
+AI-Interview is a modern web application designed to streamline the interview process using AI technologies. This app leverages a robust tech stack to provide a seamless experience for both interviewers and candidates.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
+- **AI-Powered Interview Assistance**: Utilize AI to generate and analyze interview questions and responses.
+- **Responsive Design**: Fully responsive UI built with TailwindCSS.
+- **Real-time Communication**: Interactive and real-time feedback during interviews.
+- **Google Generative AI Integration**: Enhances the app with generative AI capabilities.
+- **Serverless Deployment**: Optimized for hosting on Netlify with Next.js.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
+### Core
+- **Next.js 15**: Fast and scalable React framework.
+- **React 19 (RC)**: Latest React features for improved performance.
+- **TailwindCSS**: Utility-first CSS framework for fast UI development.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### AI
+- **@google/generative-ai**: Powering AI-based functionalities.
 
-## Learn More
+### Utilities
+- **Axios**: Promise-based HTTP client.
+- **Formidable**: File upload and parsing.
+- **clsx & class-variance-authority**: Utility libraries for conditional class management.
+- **Lucide-react**: Icon library.
 
-To learn more about Next.js, take a look at the following resources:
+### Deployment
+- **Netlify**: Serverless hosting and Next.js optimization via plugin.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📸 Screenshots
 
-## Deploy on Vercel
+### 1. **Home Page**
+The starting point for users, with clean navigation and a CTA to begin an interview.
+![Home Page](./screenshots/home-page.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 2. **Interview Interface**
+Dynamic and real-time question/response interface with AI feedback.
+![Interview Interface](./screenshots/interview-interface.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 3. **Result Analysis**
+Detailed analysis of the candidate's performance.
+![Result Analysis](./screenshots/result-analysis.png)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18 or above)
+- npm or yarn package manager
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/ai-interview.git
+
+2. Navigate to the project directory:
+   ```bash
+   cd ai-interview
+
+3. Install dependencies:
+   ```bash
+   npm install
+
+4. Development Server
+    Start the development server:
+   ```bash
+   npm run dev
+
+5. The app will be accessible at http://localhost:3000.
+
+6. Build the app for production:
+    ```bash
+   npm run build
+
+7. Start the production server:
+    ```bash
+   npm start
+   
+### 🛠️ Configuration
+
+1. Environment Variables
+    ```bash
+    NEXT_PUBLIC_API_KEY=your-google-generative-ai-key
+
+### 📝 Scripts
+**npm run dev**: Start the development server with Turbopack.
+**npm run build**: Build the app for production.
+**npm run start**: Start the production server.
+**npm run lint**: Run ESLint to check for code quality issues.
+
+### 📂 Folder Structure
+    ```bash
+        ai-interview/
+    ├── public/                # Static assets
+    ├── src/app                # Application source code
+    │   ├── components/        # Reusable React components
+    │   ├── pages/             # Next.js pages
+    │   ├── styles/            # Global and module-specific styles
+    │   ├── utils/             # Utility functions
+    │     
+    ├── .env                   # Environment variables
+    ├── package.json           # Project dependencies and scripts
+    └── tailwind.config.js     # TailwindCSS configuration
+
+----------------------------------
+
+
+🌐 Deployment
+1. The app is configured for deployment on Netlify. Install the Netlify CLI and use the following command:
+    ```bash
+    netlify deploy
