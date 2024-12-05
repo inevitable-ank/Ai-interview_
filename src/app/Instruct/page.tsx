@@ -154,7 +154,7 @@
 // export default InstructionsPage;
 
 import { useRef, useState } from "react";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 const InstructionsPage = () => {
   
@@ -163,7 +163,7 @@ const InstructionsPage = () => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isScreenSharing, setIsScreenSharing] = useState(false);
 
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleStartInterview = async () => {
     // Request Camera and Microphone
