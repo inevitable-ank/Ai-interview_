@@ -13,7 +13,7 @@ import { FaRegClock } from "react-icons/fa";
 import { MdOpenInNew } from "react-icons/md";
 import { useRef } from "react";
 
-const Home = () => {
+const Permission = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -409,6 +409,7 @@ const Home = () => {
               <button
                 className=" items-center justify-center font-semibold transition-colors bg-purple-500 hover:bg-blue-500 px-4 w-full rounded-lg py-3 text-[1rem] disabled:bg-gray-700"
                 disabled={!screenShareChecked}
+                onClick={() => router.push("/Instruct")}
               >
                 Start Interview
               </button>
@@ -423,4 +424,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Permission;
