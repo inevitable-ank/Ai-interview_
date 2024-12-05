@@ -345,67 +345,7 @@ const Permission = () => {
                   </button>
                 </div>
               </div>
-              {/* <button
-          className="w-full p-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700"
-          disabled={!screenShareChecked}
-        >
-          Start Interview
-        </button> */}
-
-              {/* -------------------------------------------------------------------------------------------------------- */}
-
-              {/* <div className="flex w-full gap-2 md:w-fit">
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
-                    1.
-                  </span>
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
-                    Ensure stable internet and choose a clean, quiet location
-                  </span>
-                </div> */}
-              {/* <div className="flex w-full gap-2 md:w-fit">
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
-                    2.
-                  </span>
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
-                    Permission for access to camera, microphone, entire screen
-                    sharing is required.
-                  </span>
-                </div> */}
-              {/* <div className="flex w-full gap-2 md:w-fit">
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
-                    3.
-                  </span>
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
-                    Be in professional attire and avoid distractions.
-                  </span>
-                </div> */}
-              {/* <div className="flex w-full gap-2 md:w-fit">
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
-                    4.
-                  </span>
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
-                    Give a detailed response, providing as much information as you
-                    can.
-                  </span>
-                </div> */}
-              {/* <div className="flex w-full gap-2 md:w-fit">
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
-                    4.
-                  </span>
-                  <span className="dmSans whitespace-pre-line text-[0.88rem] leading-relaxed md:text-[1rem] font-[300] not-italic no-underline text-left text-white/90">
-                    Answer the question with examples and projects you’ve worked
-                    on.
-                  </span>
-                </div> */}
-              {/* </div> */}
-              {/* <div className="mb-[48px] mt-4 rounded-xl bg-slate-800 p-2 md:p-4">
-                <span className="whitespace-pre-line text-[0.88rem] md:text-[1rem] font-[300] items-center">
-                  <span className="md:text-[1rem] text-[#6C47FF] hover:text-[#3f2899] cursor-pointer inline-flex items-center">
-                    Click here{" "} <MdOpenInNew style={{ color: "blue",fontSize: "1rem",cursor: "pointer"}} className="mx-1"/>
-                  </span>
-                    to try a mock interview with Avya, our AI interviewer, and build your confidence before the main interview !
-                </span>
-              </div> */}
+              
               <button
                 className=" items-center justify-center font-semibold transition-colors bg-purple-500 hover:bg-blue-500 px-4 w-full rounded-lg py-3 text-[1rem] disabled:bg-gray-700"
                 disabled={!screenShareChecked}
