@@ -202,7 +202,9 @@ const Home = () => {
                     to try a mock interview with Avya, our AI interviewer, and build your confidence before the main interview !
                 </span>
               </div>
-              <button className=" items-center justify-center font-semibold transition-colors bg-purple-500 hover:bg-blue-500 px-4 w-full rounded-none py-3 text-[1rem] ">
+              <button className=" items-center justify-center font-semibold transition-colors bg-purple-500 hover:bg-blue-500 px-4 w-full rounded-none py-3 text-[1rem] "
+                onClick={() => router.push("/checkPermissions")}
+                >
                 Start Now
               </button>
             </div>

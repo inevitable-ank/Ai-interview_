@@ -32,28 +32,31 @@ const Home = () => {
   const analyserRef = useRef<AnalyserNode | null>(null);
   const microphoneStreamRef = useRef<MediaStream | null>(null);
   const animationRef = useRef<number | null>(null);
+  const [helloCount, setHelloCount] = useState(0);
 
   // Check Camera
-  const checkCamera = async () => {
-    try {
-      await navigator.mediaDevices.getUserMedia({ video: true });
-      setCameraChecked(true);
-    } catch (error) {
-      alert("Please allow camera access to proceed.");
-    }
-  };
+  // const checkCamera = async () => {
+  //   try {
+  //     await navigator.mediaDevices.getUserMedia({ video: true });
+  //     setCameraChecked(true);
+  //   } catch (error) {
+  //     alert("Please allow camera access to proceed.");
+  //   }
+  // };
+
+  useEffect(() => {
+    (async () => {
+      try {
+        await navigator.mediaDevices.getUserMedia({ video: true });
+        setCameraChecked(true);
+      } catch (error) {
+        console.error("Camera access denied:", error);
+        alert("Please allow camera access to proceed.");
+      }
+    })();
+  }, []);
 
   // Check Microphone
-  const checkMicrophone = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      setMicrophoneModal(false);
-      setUpMicrophoneAnalyzer(stream);
-    } catch (error) {
-      setMicrophoneModal(true);
-    }
-  };
-
   const setUpMicrophoneAnalyzer = (stream: MediaStream) => {
     microphoneStreamRef.current = stream;
     const audioContext = new AudioContext();
@@ -66,12 +69,18 @@ const Home = () => {
     source.connect(analyser);
 
     const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
     const detectMicIntensity = () => {
       if (analyserRef.current) {
         analyserRef.current.getByteFrequencyData(dataArray);
         const intensity = Math.max(...dataArray);
         setMicIntensity(intensity);
+
         if (intensity > 50) {
+          setHelloCount((count) => count + 1);
+        }
+
+        if (helloCount >= 4) {
           setMicrophoneChecked(true);
           cleanUpMicrophone();
         } else {
@@ -82,6 +91,46 @@ const Home = () => {
 
     detectMicIntensity();
   };
+
+
+  const checkMicrophone = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      setMicrophoneModal(false);
+      setUpMicrophoneAnalyzer(stream);
+    } catch (error) {
+      setMicrophoneModal(true);
+    }
+  };
+
+  // const setUpMicrophoneAnalyzer = (stream: MediaStream) => {
+  //   microphoneStreamRef.current = stream;
+  //   const audioContext = new AudioContext();
+  //   audioContextRef.current = audioContext;
+
+  //   const analyser = audioContext.createAnalyser();
+  //   analyserRef.current = analyser;
+
+  //   const source = audioContext.createMediaStreamSource(stream);
+  //   source.connect(analyser);
+
+  //   const dataArray = new Uint8Array(analyser.frequencyBinCount);
+  //   const detectMicIntensity = () => {
+  //     if (analyserRef.current) {
+  //       analyserRef.current.getByteFrequencyData(dataArray);
+  //       const intensity = Math.max(...dataArray);
+  //       setMicIntensity(intensity);
+  //       if (intensity > 50) {
+  //         setMicrophoneChecked(true);
+  //         cleanUpMicrophone();
+  //       } else {
+  //         animationRef.current = requestAnimationFrame(detectMicIntensity);
+  //       }
+  //     }
+  //   };
+
+  //   detectMicIntensity();
+  // };
 
   const cleanUpMicrophone = () => {
     if (microphoneStreamRef.current) {
@@ -235,10 +284,10 @@ const Home = () => {
                       cameraChecked ? "bg-green-600" : "bg-gray-700"
                     
                     }`}
-                    onClick={checkCamera}
+                    // onClick={checkCamera}
                     disabled={cameraChecked}
                   >
-                    {cameraChecked ? "✅ Camera Checked" : "🎦 Check Camera"}
+                    {cameraChecked ? "✅ Camera Checked" : "🎦 Check Camera... "}
                   </button>
                 </div>
                 <div className="mb-4">
