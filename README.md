@@ -37,15 +37,24 @@ AI-Interview is a modern web application designed to streamline the interview pr
 
 ### 1. **Home Page**
 The starting point for users, with clean navigation and a CTA to begin an interview.
-![Home Page](./screenshots/home-page.png)
+![Home Page](./public/Screenshots/Home.png)
 
-### 2. **Interview Interface**
-Dynamic and real-time question/response interface with AI feedback.
-![Interview Interface](./screenshots/interview-interface.png)
+### 2. **Permission**
+Dynamic and real-time Permission page that asks for Camera, Mic and Screen Sharing permission for proctored Environment
+![Permission Page](./public/Screenshots/Permission.png)
 
-### 3. **Result Analysis**
-Detailed analysis of the candidate's performance.
-![Result Analysis](./screenshots/result-analysis.png)
+### 3. **Start**
+The follow up button for starting up the interview
+![Start](./public/Screenshots/Start%20interview.png)
+
+### 4. **Interview with AI**
+The Proctored Environment for Interview with the AI
+![Interview with AI](./public/Screenshots/AI%20interview.png)
+
+### 5. **Follow Up Questions**
+follow Up questions by the AI
+![Follow Up Questions](./public/Screenshots/Screenshot%202024-12-05%20223430.png)
+
 
 ---
 
