@@ -409,7 +409,7 @@ const Permission = () => {
               <button
                 className=" items-center justify-center font-semibold transition-colors bg-purple-500 hover:bg-blue-500 px-4 w-full rounded-lg py-3 text-[1rem] disabled:bg-gray-700"
                 disabled={!screenShareChecked}
-                onClick={() => router.push("/Instruct")}
+                onClick={() => router.push("/Questions")}
               >
                 Start Interview
               </button>

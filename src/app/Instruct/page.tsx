@@ -154,11 +154,16 @@
 // export default InstructionsPage;
 
 import { useRef, useState } from "react";
+import { useRouter } from "next/router";
 
 const InstructionsPage = () => {
+  
   const videoRef = useRef<HTMLVideoElement>(null);
+  
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isScreenSharing, setIsScreenSharing] = useState(false);
+
+  const router = useRouter();
 
   const handleStartInterview = async () => {
     // Request Camera and Microphone
@@ -177,7 +182,7 @@ const InstructionsPage = () => {
       return;
     }
 
-    // Start Screen Sharing
+    // Start Screen Sharing ------
     if (!isScreenSharing) {
       try {
         const screenStream = await navigator.mediaDevices.getDisplayMedia({
@@ -194,14 +199,17 @@ const InstructionsPage = () => {
       console.log("Screen sharing already active.");
     }
 
-    // Enter Full-Screen Mode
+    // Full-Screen Mode functionality, But i need to make sure that camera and microphone is enabled
     const element = document.documentElement;
     if (element.requestFullscreen) {
       await element.requestFullscreen();
     }
     setIsFullScreen(true);
+
+    // router.push("/Questions");
   };
 
+  // const handleInter
   // Placeholder images and instructions
   const instructionImages = [
     "https://via.placeholder.com/150",
@@ -281,6 +289,12 @@ const InstructionsPage = () => {
         onClick={handleStartInterview}
       >
         I Understand, start the interview
+      </button>
+      <button
+        className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition mt-2"
+        onClick={() => router.push("/Questions")}
+      >
+        start the interview
       </button>
 
       {/* Video Stream */}

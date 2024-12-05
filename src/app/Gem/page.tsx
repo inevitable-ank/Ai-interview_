@@ -43,7 +43,7 @@ const InterviewPage = () => {
       const genAI = new GoogleGenerativeAI(geminiApiKey);
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
-      const prompt = `You are conducting a job interview. Respond to this answer: "${response}".`;
+      const prompt = `You are conducting a job interview. Ask one follow back question according to this answer: "${response}".`;
 
       const result = await model.generateContent(prompt);
       const text = await result.response.text();
