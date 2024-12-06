@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 // import Mon from "../../public/Mon.svg"
 import { FaLandmark } from "react-icons/fa";
 import { MdTimer } from "react-icons/md";
-import { FaHourglassHalf } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa";
 import { MdOpenInNew } from "react-icons/md";
 import { useRef } from "react";
@@ -180,11 +179,11 @@ const Permission = () => {
   useEffect(() => {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices
-        .getUserMedia({ video: true }) // Request video feed
+        .getUserMedia({ video: true }) 
         .then((stream) => {
           if (videoRef.current) {
             if ("srcObject" in videoRef.current) {
-              videoRef.current.srcObject = stream; // Modern browsers
+              videoRef.current.srcObject = stream;
             } else {
               console.log("not happening");
               // videoRef.current.src = URL.createObjectURL(stream); // Fallback
@@ -210,7 +209,7 @@ const Permission = () => {
 
   return (
     <>
-      {/* Navbar */}
+
       <div className="absolute top-0 flex justify-between items-center h-16 w-full px-10 py-[1.5rem] z-40 bg-slate-100">
         <div className="text-lg font-bold flex items-center h-full">
           <Image src={logo} alt="Logo" width={106} height={20} />
@@ -226,7 +225,7 @@ const Permission = () => {
         </div>
       </div>
 
-      {/* Main Content */}
+
       {/* <div className="grid grid-cols-2 gap-4 p-8 mt-16"> */}
       <div className="relative flex h-[95vh] min-h-fit flex-col bg-[#161d29] text-white md:w-full z-10 mt-12 md:h-[95vh]">
         {/* Left Section */}

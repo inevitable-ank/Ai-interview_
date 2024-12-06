@@ -33,8 +33,8 @@ const InterviewPage = () => {
 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "en-US";
-    utterance.rate = 1; // Adjust rate as needed
-    utterance.pitch = 1; // Adjust pitch as needed
+    utterance.rate = 1; 
+    utterance.pitch = 1; 
     synth.speak(utterance);
   }
 };
@@ -45,7 +45,7 @@ const InterviewPage = () => {
 
   useEffect(() => {
     if (speechEnabled && typeof window !== 'undefined') {
-    // Speak the question on load and whenever the question changes
+    // It speaks whenever the question changes
     speakQuestion(question);
 
     // Countdown Timer
@@ -61,7 +61,7 @@ const InterviewPage = () => {
 
     return () => clearInterval(timer);
     }
-  }, [question, speechEnabled]); // Re-run effect when `question` changes
+  }, [question, speechEnabled]); 
 
   useEffect(() => {
     if (recognition) {
@@ -135,7 +135,7 @@ const InterviewPage = () => {
         videoRef.current.play();
       }
 
-      // Initialize MediaRecorder
+      // MediaRecorder
       const mediaRecorder = new MediaRecorder(stream, { mimeType: "video/webm" });
       mediaRecorderRef.current = mediaRecorder;
 
@@ -149,7 +149,7 @@ const InterviewPage = () => {
       };
       
 
-      mediaRecorder.start(1000); // Record in 1-second chunks
+      mediaRecorder.start(1000); // Record for 1-second chunks and sending
       setIsRecording(true);
       if (recognition) {
         setIsListening(true);
@@ -195,7 +195,7 @@ const InterviewPage = () => {
   //   }
   // };
 
-  // Send chunks to the API
+  // Send chunks to the API not forking currently.. there few errors in it
   const sendChunkToAPI = async (chunk: Blob) => {
     const formData = new FormData();
     formData.append("file", new Blob([chunk], { type: "video/webm" }), `recording-${Date.now()}.webm`);
@@ -225,19 +225,19 @@ const InterviewPage = () => {
         </button>
       ) : (
         <>
-      {/* Question and Number */}
+      
       <header className="text-center mb-6">
         <p className="text-lg text-gray-300">{questionNumber}/26</p>
         <h1 className="text-2xl font-semibold">{loading ? "Loading..." : question}</h1>
       </header>
 
-      {/* Timer */}
+      
       <div className="text-center mb-6">
         <span className="text-lg font-semibold text-red-500">Timer:</span>{" "}
         <span className="text-lg font-mono">{`00:${timeLeft.toString().padStart(2, "0")}`}</span>
       </div>
 
-      {/* Video Frame */}
+      
       <div className="w-full max-w-md mb-6">
         <video
           ref={videoRef}
@@ -247,7 +247,7 @@ const InterviewPage = () => {
         ></video>
       </div>
 
-      {/* Control Buttons */}
+      
       <div className="flex gap-4">
         {!isRecording ? (
           <button

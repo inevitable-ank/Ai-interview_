@@ -16,7 +16,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === "POST") {
     const uploadsDir = path.join(process.cwd(), "uploads");
 
-    // Ensure the "uploads" folder exists
+    // Ensure the "uploads" folder exists 
+    // not working few errors are there
     if (!fs.existsSync(uploadsDir)) {
       fs.mkdirSync(uploadsDir, { recursive: true });
     }
