@@ -1,3 +1,6 @@
+// Gemini For Backend
+// Don't want to use it
+
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -12,7 +15,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(400).json({ error: "Response is required." });
     }
 
-    // Call Gemini API to generate a follow-up question
+    
     const geminiResponse = await fetch("https://api.gemini.com/v1/generate-question", {
       method: "POST",
       headers: {
@@ -27,7 +30,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     const data = await geminiResponse.json();
-    const nextQuestion = data.generatedQuestion; // Adjust based on Gemini's API response
+    const nextQuestion = data.generatedQuestion;
 
     res.status(200).json({ nextQuestion });
   } catch (error) {

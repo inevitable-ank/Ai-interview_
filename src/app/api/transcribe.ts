@@ -6,14 +6,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    // Parse audio file from request
-    const audioFile = req.body.audio; // Ensure the frontend sends the audio file correctly
+    
+    const audioFile = req.body.audio;
 
     if (!audioFile) {
       return res.status(400).json({ error: "Audio file is required." });
     }
 
-    // Call your transcription service API here
+    // Transcription API 
     const transcriptionResponse = await fetch("https://api.transcription-service.com/transcribe", {
       method: "POST",
       headers: {
@@ -28,7 +28,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     const transcriptionData = await transcriptionResponse.json();
-    const transcription = transcriptionData.text; // Update based on API response format
+    const transcription = transcriptionData.text; 
 
     res.status(200).json({ transcription });
   } catch (error) {

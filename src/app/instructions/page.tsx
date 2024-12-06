@@ -79,7 +79,8 @@ function CheckPermissionsPage() {
     }
   };
 
-  // Check Speaker
+  // Check Speaker it is not working due to that audio error
+  // need to recheck it
   const checkSpeaker = () => {
     const audio = new Audio(
       "https://www.soundjay.com/button/sounds/beep-07.mp3"

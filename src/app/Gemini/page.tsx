@@ -1,3 +1,5 @@
+// Gemini Component tried to use gemini from frontend only
+
 "use client";
 
 import { useEffect, useState } from "react";
