@@ -1,6 +1,7 @@
 // // pages/instructions.tsx
 // These page needs modifaction
 // Next Mount error on this page
+// Need to work on Enfing page
 "use client";
 
 import { useRef, useState } from "react";
