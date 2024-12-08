@@ -4,7 +4,7 @@ AI-Interview is a modern web application designed to streamline the interview pr
 
 ---
 # Website Link 
-https://67515cb9067dee00083624f9--beautiful-sunshine-4d3371.netlify.app/Questions
+https://67515cb9067dee00083624f9--beautiful-sunshine-4d3371.netlify.app
 
 ---
 ## 🚀 Features
