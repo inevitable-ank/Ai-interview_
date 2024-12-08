@@ -58,6 +58,14 @@ The Proctored Environment for Interview with the AI
 follow Up questions by the AI
 ![Follow Up Questions](./public/Screenshots/Screenshot%202024-12-05%20223430.png)
 
+### 6. **Review**
+The review page after test completion 
+![Review](./public/Screenshots/Review.png)
+
+### 6. **Test Completed**
+Test Completed after giving Review 
+![Review](./public/Screenshots/Test%20completed.png)
+
 
 ---
 
