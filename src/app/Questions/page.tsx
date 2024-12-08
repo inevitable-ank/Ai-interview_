@@ -4,11 +4,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import ReviewPage from "../Review/page";
 const geminiApiKey = "AIzaSyChShQMyTYrZcJctMk_lAth6ggt0oyGtyg";
 
 const InterviewPage = () => {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [question, setQuestion] = useState("Tell me about yourself.");
+
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
   // for gemini
   const [userResponse, setUserResponse] = useState("");
   const [isListening, setIsListening] = useState(false);
@@ -106,7 +109,13 @@ const InterviewPage = () => {
       const text = await result.response.text();
 
       setQuestion(text || "Default next question.");
-      setQuestionNumber((prev) => prev + 1);
+      setQuestionNumber((prev) => {
+        const nextQuestionNumber = prev + 1;
+        if (nextQuestionNumber === 26) {
+          setIsReviewModalOpen(true); // Trigerring that modal which show the review.. (It looks good now, but have to connect databse if we want to store the reaction)
+        }
+        return nextQuestionNumber;
+      });
       setTimeLeft(60);
     } catch (error) {
       console.error("Error sending to Gemini AI:", error);
@@ -223,6 +232,8 @@ const InterviewPage = () => {
         >
           Click to Start
         </button>
+      ) : isReviewModalOpen ? (
+        <ReviewPage />
       ) : (
         <>
       
