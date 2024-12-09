@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import ReviewPage from "../Review/page";
-const geminiApiKey = "AIzaSyChShQMyTYrZcJctMk_lAth6ggt0oyGtyg";
+const geminiApiKey = process.env.NEXT_PUBLIC_API_KEY as string;
 
 const InterviewPage = () => {
   const [questionNumber, setQuestionNumber] = useState(1);
