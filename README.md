@@ -1,6 +1,6 @@
 # AI-Interview Web App
 
-AI-Interview is a modern web application designed to streamline the interview process using AI technologies. This app leverages a robust tech stack to provide a seamless experience for both interviewers and candidates.
+InterviewPractice is a modern web application designed to streamline the interview process using AI technologies. This app leverages a robust tech stack to provide a seamless experience for both interviewers and candidates.
 
 ---
 # Website Link 
